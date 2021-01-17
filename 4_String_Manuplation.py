@@ -14,7 +14,9 @@ Input1>>> "sharp"
 Input2>>> "soap" 
 Output>>> ['aps', 'hr', 'o']
 '''
-word_1, word_2=input("Word 1: "), input("Word 2: ")
+word_1=[i for i in input("Word 1: ").lower() if i.isalpha()]
+word_2=[i for i in input("Word 2: ").lower() if i.isalpha()]
+
 
 intersection=''.join(sorted(set(word_1).intersection(word_2)))
 difference_12 = ''.join(sorted(set(word_1).difference(set(word_2))))
