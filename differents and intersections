@@ -1,0 +1,37 @@
+# Write a program that takes in two words as input and returns a list containing three elements, in the following order:
+# Shared letters between two words.
+# Letters unique to word 1.
+# Letters unique to word 2.
+# Each element of the output should have unique letters, and should be alphabetically sorted.
+# Useset operations. The strings will always be in lowercase and will not contain any punctuation.
+# Input1>>> "sharp" 
+# Input2>>> "soap" 
+# Output>>> ['aps', 'hr', 'o']
+
+#import modulu ile kucuk harfler alinmistir.
+import string
+bb=list(string.ascii_lowercase)
+
+#kullanicidan iki kelime istenmis ve bunlarin icindeki buyuk harfler kucuk harfe donusturulmustur.
+kelime_1=(input("bir kelime giriniz ")).lower()
+kelime_2=(input("bir kelime daha giriniz ")).lower()
+
+kelime_1_kume=set()
+kelime_2_kume=set()
+
+#her iki kelime icin de iki ayri for loopu ile hazirlanarak, iclerindeki elemanlar bos kumelere eklenmistir.
+for i in range(len(kelime_1)):
+    if kelime_1[i] in bb:
+        kelime_1_kume.add(kelime_1[i])
+for i in range(len(kelime_2)):
+    if kelime_2[i] in bb:
+        kelime_2_kume.add(kelime_2[i])
+
+#yukarida olusturulan kumelerin ortak elemanlari ve farklari difference ve intersection ile alinmistir.
+ortak =  list(kelime_1_kume.intersection(kelime_2_kume))
+fark_1 = list(kelime_1_kume.difference(kelime_2_kume))
+fark_2 = list(kelime_2_kume.difference(kelime_1_kume))
+
+    
+# farklar ve ortak elemanlar alfebatik olarak siralanmis ve yanyana yazilmasi saglanmistir.
+print("".join(sorted(ortak)), "".join(sorted(fark_1)), "".join(sorted(fark_2)))
