@@ -1,0 +1,31 @@
+# Inputs>>> [1, 2, 3, 4, 5], 2
+# Output>>> [4, 5, 1, 2, 3] 
+# Inputs>>> [1, 2, 3, 4, 5], -2 
+# Output>>> [3, 4, 5, 1, 2]
+
+
+liste=list(input("bir liste giriniz: "))
+# lis=list(lis)
+sayi=int(input("bir sayi giriniz "))
+son=[]
+
+#girilen sayinin pozitif ve negatif olmasi durumuna karsi if blogu ile baslanmistir. daha sonra her iki durum icin
+#iki ayri for loopu olusturulmustur. ilk for ile listenin sonundaki elemanlar alinarak en basa getirilmis, ikinci 
+#for loopu ile sondaki bastaki elemanlar sona getirilmistir.
+
+if say>0:
+    for i in range(len(liste)-sayi, len(liste)):
+        print(i)
+        son.append(liste[i])
+
+    for i in range(0,len(liste)-sayi):
+        son.append(liste[i])
+else:
+    for i in range(len(liste)-abs(sayi)-1, len(liste)):
+        print(i)
+        son.append(liste[i])
+
+    for i in range(0,len(liste)-abs(sayi)-1):
+        son.append(liste[i])
+
+print(son)
